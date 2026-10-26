@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://franchise-platform.local/schemas/research-source.schema.json",
+  "title": "ResearchSource",
+  "description": "Schema definition for empirical research evidence and citations",
+  "type": "object",
+  "required": [
+    "evidenceId",
+    "topic",
+    "sourceType",
+    "title",
+    "authorOrPublisher",
+    "publicationYear",
+    "keyFindingsSummary"
+  ],
+  "properties": {
+    "evidenceId": {
+      "type": "string",
+      "pattern": "^EVD-[0-9]{3,}$"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": ["Government Database", "Industry Report", "Competitor Pricing List", "Primary Field Interview", "Academic Journal", "Company Filing"]
+    },
+    "title": {
+      "type": "string"
+    },
+    "authorOrPublisher": {
+      "type": "string"
+    },
+    "publicationYear": {
+      "type": "integer"
+    },
+    "urlOrReference": {
+      "type": "string"
+    },
+    "keyFindingsSummary": {
+      "type": "string"
+    },
+    "verifiedBy": {
+      "type": "string"
+    },
+    "verificationDate": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": false
+}

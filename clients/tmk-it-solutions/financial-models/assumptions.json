@@ -1,0 +1,35 @@
+{
+  "clientId": "tmk-it-solutions",
+  "currency": "INR",
+  "taxRatePercent": 18.0,
+  "franchiseeCapEx": {
+    "officeSetupDeposit": 36000.0,
+    "interiorAndSignage": 35000.0,
+    "hardwareAndNetworking": 45000.0,
+    "miscellaneousSetup": 10000.0
+  },
+  "franchiseeMonthlyOpEx": {
+    "officeRent": 12000.0,
+    "salespersonSalary": 18000.0,
+    "utilitiesAndInternet": 3000.0,
+    "localTravelAndMarketing": 3500.0,
+    "accountingAndAdmin": 1500.0
+  },
+  "scenarios": {
+    "conservative": {
+      "monthlyUnitSalesVelocity": 1.5,
+      "annualRenewalRatePercent": 70.0,
+      "rampUpMonths": 5
+    },
+    "base": {
+      "monthlyUnitSalesVelocity": 3.0,
+      "annualRenewalRatePercent": 85.0,
+      "rampUpMonths": 3
+    },
+    "optimistic": {
+      "monthlyUnitSalesVelocity": 5.0,
+      "annualRenewalRatePercent": 92.0,
+      "rampUpMonths": 2
+    }
+  }
+}

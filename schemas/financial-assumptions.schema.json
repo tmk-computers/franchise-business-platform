@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://franchise-platform.local/schemas/financial-assumptions.schema.json",
+  "title": "FinancialAssumptions",
+  "description": "Schema definition for financial model assumptions and parameters",
+  "type": "object",
+  "required": [
+    "clientId",
+    "currency",
+    "taxRatePercent",
+    "franchiseeCapEx",
+    "franchiseeMonthlyOpEx",
+    "scenarios"
+  ],
+  "properties": {
+    "clientId": { "type": "string" },
+    "currency": { "type": "string", "default": "INR" },
+    "taxRatePercent": { "type": "number", "minimum": 0, "default": 18 },
+    "franchiseeCapEx": {
+      "type": "object",
+      "required": ["officeSetupDeposit", "interiorAndSignage", "hardwareAndNetworking"],
+      "properties": {
+        "officeSetupDeposit": { "type": "number", "minimum": 0 },
+        "interiorAndSignage": { "type": "number", "minimum": 0 },
+        "hardwareAndNetworking": { "type": "number", "minimum": 0 },
+        "miscellaneousSetup": { "type": "number", "minimum": 0, "default": 0 }
+      }
+    },
+    "franchiseeMonthlyOpEx": {
+      "type": "object",
+      "required": ["officeRent", "salespersonSalary", "utilitiesAndInternet"],
+      "properties": {
+        "officeRent": { "type": "number", "minimum": 0 },
+        "salespersonSalary": { "type": "number", "minimum": 0 },
+        "utilitiesAndInternet": { "type": "number", "minimum": 0 },
+        "localTravelAndMarketing": { "type": "number", "minimum": 0, "default": 0 },
+        "accountingAndAdmin": { "type": "number", "minimum": 0, "default": 0 }
+      }
+    },
+    "scenarios": {
+      "type": "object",
+      "required": ["conservative", "base", "optimistic"],
+      "properties": {
+        "conservative": { "$ref": "#/definitions/scenarioSpec" },
+        "base": { "$ref": "#/definitions/scenarioSpec" },
+        "optimistic": { "$ref": "#/definitions/scenarioSpec" }
+      }
+    }
+  },
+  "definitions": {
+    "scenarioSpec": {
+      "type": "object",
+      "required": ["monthlyUnitSalesVelocity", "annualRenewalRatePercent", "rampUpMonths"],
+      "properties": {
+        "monthlyUnitSalesVelocity": { "type": "number", "minimum": 0 },
+        "annualRenewalRatePercent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "rampUpMonths": { "type": "integer", "minimum": 1 }
+      }
+    }
+  },
+  "additionalProperties": false
+}

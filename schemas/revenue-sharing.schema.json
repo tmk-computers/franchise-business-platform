@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://franchise-platform.local/schemas/revenue-sharing.schema.json",
+  "title": "RevenueSharingConfiguration",
+  "description": "Schema definition for configurable revenue-sharing splits across products and revenue streams",
+  "type": "object",
+  "required": [
+    "clientId",
+    "defaultRules",
+    "productOverrides"
+  ],
+  "properties": {
+    "clientId": { "type": "string" },
+    "currency": { "type": "string", "default": "INR" },
+    "taxTreatment": {
+      "type": "string",
+      "enum": ["NetOfTax", "GrossInclusive"],
+      "default": "NetOfTax"
+    },
+    "defaultRules": {
+      "type": "object",
+      "required": ["newSoftwareLicense", "annualRenewal", "implementationFee"],
+      "properties": {
+        "newSoftwareLicense": { "$ref": "#/definitions/splitRule" },
+        "annualRenewal": { "$ref": "#/definitions/splitRule" },
+        "implementationFee": { "$ref": "#/definitions/splitRule" },
+        "thirdPartyConsumables": { "$ref": "#/definitions/splitRule" }
+      }
+    },
+    "productOverrides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["productId", "rules"],
+        "properties": {
+          "productId": { "type": "string" },
+          "rules": {
+            "type": "object",
+            "properties": {
+              "newSoftwareLicense": { "$ref": "#/definitions/splitRule" },
+              "annualRenewal": { "$ref": "#/definitions/splitRule" },
+              "implementationFee": { "$ref": "#/definitions/splitRule" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "splitRule": {
+      "type": "object",
+      "required": ["franchiseeSharePercent", "franchisorSharePercent"],
+      "properties": {
+        "franchiseeSharePercent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "franchisorSharePercent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "deductThirdPartyInfraBeforeSplit": { "type": "boolean", "default": false }
+      }
+    }
+  },
+  "additionalProperties": false
+}

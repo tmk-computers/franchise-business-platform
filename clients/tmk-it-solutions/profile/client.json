@@ -1,0 +1,21 @@
+{
+  "clientId": "tmk-it-solutions",
+  "legalName": "TMK IT Solutions LLP",
+  "brandName": "TMK IT Solutions",
+  "industry": "Software and IT Services",
+  "country": "India",
+  "baseCurrency": "INR",
+  "status": "modeling",
+  "headquarters": {
+    "city": "Pune",
+    "state": "Maharashtra",
+    "country": "India"
+  },
+  "primaryContact": {
+    "name": "Franchise Partnerships Lead",
+    "title": "Head of Franchise Expansion",
+    "email": "franchise@tmkitsolutions.com",
+    "phone": "+91-20-00000000"
+  },
+  "onboardingDate": "2026-10-26"
+}

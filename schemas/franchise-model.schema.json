@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://franchise-platform.local/schemas/franchise-model.schema.json",
+  "title": "FranchiseModelConfiguration",
+  "description": "Schema definition for a franchise operating structure and operational requirements",
+  "type": "object",
+  "required": [
+    "clientId",
+    "archetype",
+    "contractTermYears",
+    "minimumOwnerRequirements",
+    "joiningFees"
+  ],
+  "properties": {
+    "clientId": { "type": "string" },
+    "archetype": {
+      "type": "string",
+      "enum": [
+        "FOFO",
+        "FOCO",
+        "COCO",
+        "COFO",
+        "Master Franchise",
+        "Area Development",
+        "Multi-Unit",
+        "Product Distribution",
+        "Sales Franchise",
+        "Hybrid"
+      ]
+    },
+    "contractTermYears": { "type": "integer", "minimum": 1 },
+    "renewalOptionYears": { "type": "integer", "default": 3 },
+    "minimumOwnerRequirements": {
+      "type": "object",
+      "required": ["minimumDedicatedOffices", "minimumSalesHeadcount"],
+      "properties": {
+        "minimumDedicatedOffices": { "type": "integer", "minimum": 1 },
+        "minimumOfficeSqFt": { "type": "integer", "default": 200 },
+        "minimumSalesHeadcount": { "type": "integer", "minimum": 1 },
+        "minimumWorkingCapitalReserve": { "type": "number", "minimum": 0 }
+      }
+    },
+    "joiningFees": {
+      "type": "object",
+      "required": ["pricingTiers"],
+      "properties": {
+        "currency": { "type": "string", "default": "INR" },
+        "pricingTiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["tierName", "feePerProductNet"],
+            "properties": {
+              "tierName": { "type": "string" },
+              "feePerProductNet": { "type": "number", "minimum": 0 },
+              "bundledAllProductsDiscountPercent": { "type": "number", "default": 0 },
+              "conditions": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "territoryPolicy": {
+      "type": "object",
+      "properties": {
+        "allocationUnit": { "type": "string", "enum": ["Taluka", "District", "PIN_Cluster", "City_Zone"] },
+        "exclusivityType": { "type": "string", "enum": ["Exclusive", "Non-Exclusive", "Preferred"] },
+        "minimumTargetInstitutions": { "type": "integer" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://franchise-platform.local/schemas/client.schema.json",
+  "title": "Client",
+  "description": "Schema definition for an enterprise organization client onboarding onto the franchise platform",
+  "type": "object",
+  "required": [
+    "clientId",
+    "legalName",
+    "brandName",
+    "industry",
+    "country",
+    "baseCurrency",
+    "status"
+  ],
+  "properties": {
+    "clientId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique URL-friendly client slug identifier (e.g., tmk-it-solutions)"
+    },
+    "legalName": {
+      "type": "string",
+      "description": "Full legal registered entity name"
+    },
+    "brandName": {
+      "type": "string",
+      "description": "Commercial trading or brand name"
+    },
+    "industry": {
+      "type": "string",
+      "enum": [
+        "Software and IT Services",
+        "Food and Beverage",
+        "Retail",
+        "Education",
+        "Healthcare",
+        "Real Estate",
+        "Manufacturing",
+        "Professional Services",
+        "Automotive",
+        "Hospitality",
+        "Other"
+      ]
+    },
+    "country": {
+      "type": "string",
+      "default": "India"
+    },
+    "baseCurrency": {
+      "type": "string",
+      "default": "INR"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["onboarding", "modeling", "active", "archived"],
+      "default": "modeling"
+    },
+    "headquarters": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "primaryContact": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" }
+      }
+    },
+    "onboardingDate": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": false
+}

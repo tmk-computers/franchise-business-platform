@@ -1,0 +1,28 @@
+{
+  "clientId": "tmk-it-solutions",
+  "currency": "INR",
+  "taxTreatment": "NetOfTax",
+  "defaultRules": {
+    "newSoftwareLicense": {
+      "franchiseeSharePercent": 40.0,
+      "franchisorSharePercent": 60.0,
+      "deductThirdPartyInfraBeforeSplit": false
+    },
+    "annualRenewal": {
+      "franchiseeSharePercent": 40.0,
+      "franchisorSharePercent": 60.0,
+      "deductThirdPartyInfraBeforeSplit": false
+    },
+    "implementationFee": {
+      "franchiseeSharePercent": 20.0,
+      "franchisorSharePercent": 80.0,
+      "deductThirdPartyInfraBeforeSplit": false
+    },
+    "thirdPartyConsumables": {
+      "franchiseeSharePercent": 0.0,
+      "franchisorSharePercent": 100.0,
+      "deductThirdPartyInfraBeforeSplit": true
+    }
+  },
+  "productOverrides": []
+}

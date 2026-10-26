@@ -1,0 +1,89 @@
+{
+  "clientId": "tmk-it-solutions",
+  "products": [
+    {
+      "productId": "prd-01-school-college-erp",
+      "name": "School / College ERP",
+      "category": "Education IT",
+      "deliveryModel": "SaaS",
+      "targetCustomerSegment": "K-12 Private Schools, Degree Colleges, Vocational Institutes",
+      "indicativePriceNet": 60000,
+      "currency": "INR",
+      "pricingModel": "Annual Subscription",
+      "implementationFeeNet": 10000,
+      "estimatedAnnualRenewalNet": 15000,
+      "salesCycleDays": 45,
+      "description": "Comprehensive institutional campus management system managing student admissions, attendance, fees, examinations, timetable, and parent-teacher communication."
+    },
+    {
+      "productId": "prd-02-invoicing-app-web",
+      "name": "Invoicing App + Web",
+      "category": "FinTech / MSME",
+      "deliveryModel": "SaaS",
+      "targetCustomerSegment": "Retailers, Wholesalers, Traders, Freelancers, Small MSMEs",
+      "indicativePriceNet": 12000,
+      "currency": "INR",
+      "pricingModel": "Annual Subscription",
+      "implementationFeeNet": 2000,
+      "estimatedAnnualRenewalNet": 3600,
+      "salesCycleDays": 14,
+      "description": "GST-compliant invoicing, billing, inventory tracking, payment gateway link generation, and barcode printing across web and Android mobile apps."
+    },
+    {
+      "productId": "prd-03-omr-software",
+      "name": "OMR Evaluation Software",
+      "category": "Assessment IT",
+      "deliveryModel": "Hybrid",
+      "targetCustomerSegment": "Coaching Centers, Private Schools, University Examination Boards",
+      "indicativePriceNet": 25000,
+      "currency": "INR",
+      "pricingModel": "Annual Subscription",
+      "implementationFeeNet": 3000,
+      "estimatedAnnualRenewalNet": 6000,
+      "salesCycleDays": 21,
+      "description": "High-accuracy optical mark recognition software evaluating bubble-sheet tests using standard desktop document scanners with instant student analytics."
+    },
+    {
+      "productId": "prd-04-property-management-erp",
+      "name": "Property Management ERP",
+      "category": "Real Estate IT",
+      "deliveryModel": "SaaS",
+      "targetCustomerSegment": "Housing Societies, Commercial Office Towers, Gated Communities, Facility Management Companies",
+      "indicativePriceNet": 75000,
+      "currency": "INR",
+      "pricingModel": "Annual Subscription",
+      "implementationFeeNet": 12000,
+      "estimatedAnnualRenewalNet": 18000,
+      "salesCycleDays": 60,
+      "description": "Enterprise society management platform covering maintenance dues billing, accounting, tenant verification, visitor security desk, and facility booking."
+    },
+    {
+      "productId": "prd-05-devops-automation",
+      "name": "DevOps Automation Platform",
+      "category": "Developer IT",
+      "deliveryModel": "SaaS",
+      "targetCustomerSegment": "Software Development Agencies, IT Consultancies, Mid-Market Tech Companies",
+      "indicativePriceNet": 90000,
+      "currency": "INR",
+      "pricingModel": "Annual Subscription",
+      "implementationFeeNet": 15000,
+      "estimatedAnnualRenewalNet": 22000,
+      "salesCycleDays": 60,
+      "description": "CI/CD orchestration, automated multi-cloud server provisioning, container management, and log monitoring tailored for engineering development agencies."
+    },
+    {
+      "productId": "prd-06-sales-crm",
+      "name": "Sales CRM Platform",
+      "category": "Commercial IT",
+      "deliveryModel": "SaaS",
+      "targetCustomerSegment": "Real Estate Brokers, Financial Distributors, Car Dealerships, B2B Field Sales Teams",
+      "indicativePriceNet": 35000,
+      "currency": "INR",
+      "pricingModel": "Annual Subscription",
+      "implementationFeeNet": 5000,
+      "estimatedAnnualRenewalNet": 8500,
+      "salesCycleDays": 30,
+      "description": "Field sales enablement CRM featuring geo-tagged salesperson check-ins, WhatsApp automation, lead pipeline tracking, and manager reporting dashboards."
+    }
+  ]
+}
