@@ -6,6 +6,8 @@ Comprehensive automated validation script verifying:
 2. Structural existence of mandatory directories and key deliverables.
 3. Integrity of relative markdown links across repository documentation.
 4. Financial configuration rules (e.g., revenue sharing splits sum to 100%).
+5. Complete documentation architecture and entry points.
+6. Script execution references in documentation.
 
 Exits with code 0 on complete pass, or code 1 on any failure.
 """
@@ -101,9 +103,78 @@ class RepoValidator:
 
         print(f"Structure check completed. Verified {self.checked_files} mandatory files.")
 
+    def validate_documentation_architecture(self):
+        """Verify existence and integrity of the documentation and onboarding system."""
+        print("\n--- 2. Validating Documentation Architecture & Onboarding System ---")
+        
+        # 1. Required entry points
+        entry_points = [
+            "docs/START-HERE.md",
+            "docs/DOCUMENTATION-MAP.md",
+            "docs/GLOSSARY.md",
+            "docs/DOCUMENTATION-AUDIT.md"
+        ]
+        for ep in entry_points:
+            ep_abs = os.path.join(self.repo_root, ep)
+            if not os.path.exists(ep_abs):
+                self.log_error(f"Missing documentation entry point: {ep}")
+            else:
+                print(f"  [PASS] Entry point found: {ep}")
+
+        # 2. Required 7 numbered modules and critical playbooks
+        numbered_sections = [
+            ("01-platform-orientation", ["README.md"]),
+            ("02-franchise-fundamentals", ["README.md"]),
+            ("03-repository-guide", ["README.md"]),
+            ("04-client-workspaces", ["README.md"]),
+            ("05-analyst-playbooks", ["README.md", "analyst-1-strategy-playbook.md", "analyst-2-finance-playbook.md"]),
+            ("06-quality-and-approval", ["README.md", "standard-work-journey.md"]),
+            ("07-first-week-onboarding", ["README.md", "five-day-onboarding-journey.md", "onboarding-checklist.md"])
+        ]
+
+        for sec_dir, sec_files in numbered_sections:
+            sec_abs = os.path.join(self.repo_root, "docs", sec_dir)
+            if not os.path.exists(sec_abs):
+                self.log_error(f"Missing documentation section directory: docs/{sec_dir}")
+                continue
+            for f in sec_files:
+                f_abs = os.path.join(sec_abs, f)
+                if not os.path.exists(f_abs):
+                    self.log_error(f"Missing section file: docs/{sec_dir}/{f}")
+                else:
+                    print(f"  [PASS] Section asset found: docs/{sec_dir}/{f}")
+
+        # 3. Check for START-HERE reference in root README.md
+        readme_path = os.path.join(self.repo_root, "README.md")
+        if os.path.exists(readme_path):
+            with open(readme_path, "r", encoding="utf-8") as f:
+                readme_content = f.read()
+            if "START-HERE.md" not in readme_content:
+                self.log_error("Root README.md is missing a reference to docs/START-HERE.md")
+            else:
+                print("  [PASS] Root README.md contains prominent START-HERE reference.")
+
+        # 4. Check for invalid script references in documentation
+        script_pattern = re.compile(r'python\s+([a-zA-Z0-9_\-\\/]+\.py)')
+        checked_scripts = 0
+        for root, _, files in os.walk(os.path.join(self.repo_root, "docs")):
+            for fname in files:
+                if fname.endswith(".md"):
+                    fpath = os.path.join(root, fname)
+                    with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
+                        text = f.read()
+                    matches = script_pattern.findall(text)
+                    for script_rel in matches:
+                        clean_script = script_rel.replace("/", os.sep).replace("\\", os.sep)
+                        script_abs = os.path.join(self.repo_root, clean_script)
+                        checked_scripts += 1
+                        if not os.path.exists(script_abs):
+                            self.log_error(f"Invalid script reference in {os.path.relpath(fpath, self.repo_root)}: '{script_rel}' does not exist.")
+        print(f"  [PASS] Verified {checked_scripts} documentation script invocation references.")
+
     def validate_json_schemas(self):
         """Validate client JSON configurations against their respective schemas."""
-        print("\n--- 2. Validating JSON Configurations Against Schemas ---")
+        print("\n--- 3. Validating JSON Configurations Against Schemas ---")
         validation_targets = [
             ("clients/tmk-it-solutions/profile/client.json", "client.schema.json"),
             ("clients/tmk-it-solutions/products/products-catalog.json", "product.schema.json"),
@@ -134,7 +205,7 @@ class RepoValidator:
 
     def validate_financial_consistency(self):
         """Verify mathematical consistency of client commercial parameters."""
-        print("\n--- 3. Validating Financial Configuration Consistency ---")
+        print("\n--- 4. Validating Financial Configuration Consistency ---")
         assumptions_path = os.path.join(self.repo_root, "clients/tmk-it-solutions/financial-models/assumptions.json")
         rev_share_path = os.path.join(self.repo_root, "clients/tmk-it-solutions/franchise-model/revenue-sharing-config.json")
 
@@ -165,7 +236,7 @@ class RepoValidator:
 
     def validate_markdown_links(self):
         """Check for broken relative file links in markdown files."""
-        print("\n--- 4. Validating Markdown Relative Links ---")
+        print("\n--- 5. Validating Markdown Relative Links ---")
         link_pattern = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
         broken_links = 0
         total_links = 0
@@ -209,6 +280,7 @@ class RepoValidator:
 
     def run_all(self) -> bool:
         self.validate_required_structure()
+        self.validate_documentation_architecture()
         self.validate_json_schemas()
         self.validate_financial_consistency()
         self.validate_markdown_links()

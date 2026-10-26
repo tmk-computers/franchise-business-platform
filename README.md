@@ -4,11 +4,46 @@ A systematic, client-independent, and industry-agnostic platform engineered to r
 
 ---
 
+> [!IMPORTANT]
+> ### 🚀 New to the Platform? Start Here!
+> If you are a new Data Analyst, Engineer, or Contributor, your primary orientation gateway is:
+> 👉 **[docs/START-HERE.md](file:///d:/company/products/franchise-business-platform/docs/START-HERE.md)**
+>
+> | Quick Navigation Link | Target Content |
+> |---|---|
+> | **[docs/START-HERE.md](file:///d:/company/products/franchise-business-platform/docs/START-HERE.md)** | Executive welcome, platform vs client distinction, and onboarding guide |
+> | **[docs/DOCUMENTATION-MAP.md](file:///d:/company/products/franchise-business-platform/docs/DOCUMENTATION-MAP.md)** | Complete directory tree and file index across the entire repository |
+> | **[docs/GLOSSARY.md](file:///d:/company/products/franchise-business-platform/docs/GLOSSARY.md)** | Alphabetized glossary of franchise, financial, regulatory, and platform terms |
+> | **[Analyst 1 Playbook](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-1-strategy-playbook.md)** | Execution manual for Business Strategy, Market Research & Documentation |
+> | **[Analyst 2 Playbook](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-2-finance-playbook.md)** | Execution manual for Financial Modeling, Analytics & Python/Excel Engines |
+> | **[First-Week Onboarding Program](file:///d:/company/products/franchise-business-platform/docs/07-first-week-onboarding/README.md)** | 5-Day structured onboarding curriculum and interactive checklist |
+
+---
+
+## Table of Contents
+1. [Executive Overview & Platform Vision](#1-executive-overview--platform-vision)
+2. [Business Problems Solved](#2-business-problems-solved)
+3. [Target Users](#3-target-users)
+4. [Supported Franchise Business Models](#4-supported-franchise-business-models)
+5. [Guided Learning Paths for Analysts](#5-guided-learning-paths-for-analysts)
+6. [Repository Organization & Directory Map](#6-repository-organization--directory-map)
+7. [Client Workspaces & Inaugural Client (TMK IT Solutions)](#7-client-workspaces--inaugural-client-tmk-it-solutions)
+8. [Decimal-Safe Financial Modeling & Projections Engine](#8-decimal-safe-financial-modeling--projections-engine)
+9. [Institutional Document & Presentation Templates](#9-institutional-document--presentation-templates)
+10. [Contribution Guidelines & Standard Work Journey](#10-contribution-guidelines--standard-work-journey)
+11. [Quality Gates & Automated Validation Suite](#11-quality-gates--automated-validation-suite)
+12. [Current Roadmap & Implementation Status](#12-current-roadmap--implementation-status)
+13. [Next Steps & Navigation](#13-next-steps--navigation)
+
+---
+
 ## 1. Executive Overview & Platform Vision
 
 Franchising is one of the most effective scaling mechanisms for modern enterprises. However, traditional franchise modeling is plagued by fragmented spreadsheets, unverified commercial assumptions, unrealistic earnings claims, poorly defined unit economics, and lack of operational standardization. 
 
 The **Franchise Business Modeling & Intelligence Platform** transforms franchise expansion from intuitive guesswork into an auditable, data-driven discipline. By combining rigorous financial engineering, standardized operational frameworks, structured market intelligence, and automated document generation, the platform enables enterprises and franchise advisory teams to rapidly evaluate feasibility, design sustainable revenue-sharing models, and deploy franchise networks with confidence.
+
+**Core Architectural Axiom:** This platform is strictly **client-independent and industry-agnostic**. Reusable frameworks (`frameworks/`), schemas (`schemas/`), calculation engines (`tools/`), and templates (`templates/`) are strictly isolated from client workspaces (`clients/`). **TMK IT Solutions LLP** is the platform's inaugural client workspace (`clients/tmk-it-solutions/`), NOT the platform itself.
 
 ---
 
@@ -50,69 +85,52 @@ The platform provides dedicated comparative frameworks and economic models for a
 
 ---
 
-## 5. Repository Organization
+## 5. Guided Learning Paths for Analysts
+
+To guide new contributors through systematic onboarding, the platform provides 7 numbered learning paths in `docs/`:
+
+1. **[01-Platform Orientation](file:///d:/company/products/franchise-business-platform/docs/01-platform-orientation/README.md):** Strategic vision, SaaS architecture, tenant isolation, and client independence.
+2. **[02-Franchise Fundamentals](file:///d:/company/products/franchise-business-platform/docs/02-franchise-fundamentals/README.md):** Archetypes (FOFO/FOCO/COCO), RACI governance, pass-through GST segregation, and territory rules.
+3. **[03-Repository Guide](file:///d:/company/products/franchise-business-platform/docs/03-repository-guide/README.md):** Directory tour, JSON Schema contracts, mathematical standards, and testing conventions.
+4. **[04-Client Workspaces](file:///d:/company/products/franchise-business-platform/docs/04-client-workspaces/README.md):** Multi-tenant isolation and deep-dive into the TMK IT Solutions baseline.
+5. **[05-Analyst Playbooks](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/README.md):** Role manuals for [Analyst 1 (Strategy)](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-1-strategy-playbook.md) and [Analyst 2 (Finance)](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-2-finance-playbook.md).
+6. **[06-Quality and Approval](file:///d:/company/products/franchise-business-platform/docs/06-quality-and-approval/README.md):** 10-stage contribution lifecycle, peer review gates, and deliverable sign-offs.
+7. **[07-First-Week Onboarding](file:///d:/company/products/franchise-business-platform/docs/07-first-week-onboarding/README.md):** 5-day structured syllabus and interactive onboarding checklist.
+
+---
+
+## 6. Repository Organization & Directory Map
 
 ```text
 franchise-business-platform/
 │
 ├── README.md                          # Repository overview & quickstart
-├── AGENTS.md                          # Operational instructions for AI assistants
+├── AGENTS.md                          # Authoritative operational rules for AI assistants
 ├── CONTRIBUTING.md                    # Contribution guidelines & branch workflows
 ├── CHANGELOG.md                       # Release notes and version history
 ├── LICENSE-DECISION.md                # IP, licensing, and proprietary classification
-├── .gitignore                         # Git exclusion rules
-├── .editorconfig                      # Coding and formatting standards
-├── .github/                           # CI workflows and PR templates
+│
+├── docs/                              # Centralized documentation system
+│   ├── START-HERE.md                  # Primary onboarding entry point for all analysts
+│   ├── DOCUMENTATION-MAP.md           # Master directory tree and file index
+│   ├── GLOSSARY.md                    # Comprehensive terminology reference
+│   ├── DOCUMENTATION-AUDIT.md         # Audit of repository structure and gaps
+│   ├── 01-platform-orientation/       # Module 1: Architecture & vision
+│   ├── 02-franchise-fundamentals/     # Module 2: Franchise models & RACI
+│   ├── 03-repository-guide/           # Module 3: Directories & standards
+│   ├── 04-client-workspaces/          # Module 4: Tenant isolation & TMK baseline
+│   ├── 05-analyst-playbooks/          # Module 5: Role-specific playbooks
+│   ├── 06-quality-and-approval/       # Module 6: Review gates & 10-stage lifecycle
+│   └── 07-first-week-onboarding/      # Module 7: 5-Day onboarding syllabus
 │
 ├── platform/                          # Platform vision, PRDs, SaaS architecture & roadmap
-│   ├── vision/                        # Strategic objectives and core capabilities
-│   ├── product-requirements/          # Product requirement documents (PRD V0.1)
-│   ├── architecture/                  # Multi-tenant SaaS architecture & system design
-│   ├── data-models/                   # Domain entities and relationship documentation
-│   ├── security/                      # Confidentiality guidelines & access controls
-│   └── roadmap/                       # Roadmap for V1.0, V2.0, and V3.0
-│
-├── frameworks/                        # Reusable, client-agnostic business frameworks
-│   ├── franchise-model-design/        # Archetype comparisons, RACI matrices & selection
-│   ├── feasibility-analysis/          # Financial feasibility, unit economics, payback
-│   ├── market-research/               # Market sizing, competitive benchmarking methodology
-│   ├── financial-modeling/            # Mathematical standards & modeling conventions
-│   ├── revenue-sharing/               # Parameterized commission, fee splits & tiering
-│   ├── territory-intelligence/        # Territory segmentation, density & conflict prevention
-│   ├── investor-protection/           # Transparency, risk disclosure & fair exit policies
-│   ├── risk-assessment/               # Franchise risk taxonomy & mitigation playbooks
-│   ├── franchise-operations/          # Operations manual architecture & quality standards
-│   ├── performance-analytics/         # 13 core KPIs, metrics taxonomy & benchmarking
-│   └── franchise-expansion/           # Phased rollout waves & scaling strategy
-│
+├── frameworks/                        # Reusable, client-agnostic business frameworks (11 domains)
 ├── templates/                         # Standardized document and presentation templates
-│   ├── business-plans/                # Franchise business plan templates
-│   ├── market-research/               # Market analysis & territory report templates
-│   ├── financial-models/              # Feasibility & P&L narrative templates
-│   ├── franchise-agreements/          # Master franchise agreement legal templates
-│   ├── legal-policies/                # Revenue-sharing, territory & IP policy templates
-│   ├── investor-presentations/        # Pitch deck outlines & investor risk disclosures
-│   ├── brochures/                     # Franchise opportunity brochure templates
-│   ├── product-demonstrations/        # Demo scripts & presentation kits
-│   ├── sales-playbooks/               # Sales training & franchise recruitment playbooks
-│   ├── operations-manuals/            # Unit operations handbooks
-│   ├── dashboards/                    # Executive KPI dashboard specifications
-│   ├── checklists/                    # Onboarding, due diligence & review checklists
-│   └── management-reports/            # Weekly & executive reporting templates
-│
-├── industry-models/                   # Vertical-specific franchise economics & benchmarks
-│   ├── software/                      # SaaS & IT services recurring revenue models
-│   ├── food-beverage/                 # QSR, café, kitchen supply-chain models
-│   ├── retail/                        # Store inventory, footfall & merchandise models
-│   ├── education/                     # K-12, coaching, test prep institution models
-│   ├── healthcare/                    # Clinics, diagnostic labs & pharmacy models
-│   ├── real-estate/                   # Brokerage & property management networks
-│   ├── manufacturing/                 # Contract manufacturing & fabrication models
-│   └── professional-services/         # Staffing, accounting & consulting agencies
+├── industry-models/                   # Vertical-specific economics (software, retail, etc.)
 │
 ├── clients/                           # Client-specific workspaces (strictly isolated)
-│   └── tmk-it-solutions/              # Initial client: TMK IT Solutions LLP
-│       ├── profile/                   # Client overview & commercial assumptions
+│   └── tmk-it-solutions/              # Inaugural client: TMK IT Solutions LLP
+│       ├── profile/                   # Corporate overview & leadership
 │       ├── products/                  # 6 software product profiles & catalog
 │       ├── research/                  # Market demand, competitive & territory briefs
 │       ├── franchise-model/           # FOFO architecture, RACI & revenue rules
@@ -122,158 +140,127 @@ franchise-business-platform/
 │       ├── sales-marketing/           # Brochure, prospectus, FAQ & infographics
 │       ├── legal-drafts/              # Non-final agreement and policy drafts
 │       ├── operations/                # Operating handbook & support SLA matrix
-│       ├── risks/                     # Client-specific risk register
 │       ├── decisions/                 # Management decision log
 │       ├── approvals/                 # Commercial sign-off matrix
 │       └── deliverables/              # Finalized and approved client assets
 │
-├── schemas/                           # JSON Schema data contracts
-│   ├── client.schema.json             # Client profile data contract
-│   ├── product.schema.json            # Product catalog contract
-│   ├── franchise-model.schema.json    # Franchise structure contract
-│   ├── financial-assumptions.schema.json # Modeling parameters contract
-│   ├── revenue-sharing.schema.json    # Revenue sharing logic contract
-│   ├── research-source.schema.json    # Research evidence tracking contract
-│   └── deliverable.schema.json        # Client deliverable tracking contract
-│
+├── schemas/                           # JSON Schema data contracts (Draft-07)
 ├── tools/                             # Automation tools and calculation engines
-│   ├── financial-modeling/            # Python Decimal engine & openpyxl workbook generator
-│   ├── validation/                    # Repository integrity & schema validation scripts
-│   ├── document-generation/           # Automated presentation & document generators
-│   └── reporting/                     # Summary & metrics reporting tools
-│
 ├── analyst-workspace/                 # Dual-analyst operational command center
-│   ├── onboarding/                    # Analyst onboarding guides & 6-week plan
-│   ├── assignments/                   # Analyst 1 & Analyst 2 backlogs
-│   ├── task-tracker/                  # Centralized operational task board
-│   ├── research-methodology/          # Evidence standards & assumptions register
-│   ├── quality-checklists/            # PR review & deliverable acceptance checklists
-│   ├── weekly-reports/                # Progress reports & weekly templates
-│   └── review-process/                # Peer-review & sign-off workflow
-│
-├── docs/                              # Global documentation & standards
-│   ├── getting-started/               # Quickstart guide for new engineers/analysts
-│   ├── standards/                     # Mathematical & documentation standards
-│   ├── glossary/                      # Standardized franchise terminology
-│   └── implementation-guides/         # Client onboarding playbook
-│
-└── tests/                             # Comprehensive automated test suite
-    ├── test_financial_calculator.py   # Unit tests for Decimal math & revenue sharing
-    ├── test_excel_generator.py        # Validation of generated Excel workbook formulas
-    ├── test_schemas.py                # Schema validation for all JSON configurations
-    └── test_repo_integrity.py         # Structural, file, and link integrity tests
+└── tests/                             # Automated test suite (pytest)
 ```
 
 ---
 
-## 6. How to Onboard a New Client
+## 7. Client Workspaces & Inaugural Client (TMK IT Solutions)
 
-To onboard a new corporate client:
-1. **Create Client Workspace:**
-   Create a new directory under `clients/<client-identifier>/` mirroring the standard client workspace layout.
-2. **Populate Client Profile:**
-   Create `profile/client.json` adhering to `schemas/client.schema.json`.
-3. **Define Product Catalog:**
-   Document products in `products/` and configure `products/products-catalog.json` adhering to `schemas/product.schema.json`.
-4. **Configure Commercial & Financial Assumptions:**
-   Define franchise fees, fee waivers, revenue splits, operating costs, and tax treatments in `financial-models/assumptions.json` adhering to `schemas/financial-assumptions.schema.json`.
-5. **Generate Financial Model:**
-   Run the financial modeling toolkit to generate projections and the editable Excel workbook:
-   ```bash
-   python tools/financial-modeling/cli.py --client <client-identifier> --output-dir clients/<client-identifier>/financial-models/
-   ```
-6. **Execute Validation Checks:**
-   Verify client configuration using `python tools/validation/validate_repo.py`.
+Client workspaces reside in `clients/<client-slug>/`. The inaugural client is **TMK IT Solutions LLP** (`clients/tmk-it-solutions/`).
+
+### TMK IT Solutions Overview
+- **Business Model:** FOFO (Franchise Owned, Franchise Operated).
+- **Product Portfolio:** 6 enterprise B2B software solutions (Cloud ERP, School Management, Hospital ERP, Retail POS, DevOps Automation, Cybersecurity Suite).
+- **Commercial Terms:**
+  - Promotional joining fee: ₹25,000 (first 10 units).
+  - Standard joining fee: ₹50,000.
+  - Net revenue sharing split: 40% Franchisee : 60% TMK IT Solutions.
+  - Mandatory statutory tax handling: 18% GST pass-through strictly isolated from distributable revenue.
+  - Working capital cushion: ₹50,000–₹1,00,000.
+- **Territory Strategy:** Sub-district administrative boundaries (Talukas / Tehsils) with a 90-day Deal Registration Lock.
+
+To onboard a future client, follow the [Client Onboarding Playbook](file:///d:/company/products/franchise-business-platform/docs/implementation-guides/client-onboarding-playbook.md).
 
 ---
 
-## 7. How to Create a Financial Model
+## 8. Decimal-Safe Financial Modeling & Projections Engine
 
-1. **Review and Update Assumptions:** Edit `clients/<client-name>/financial-models/assumptions.json`.
-2. **Execute the Python Engine:**
-   ```bash
-   # Run model calculations and output JSON projection summary:
-   python tools/financial-modeling/cli.py --client tmk-it-solutions --scenario base
+All financial calculations in Python strictly utilize `decimal.Decimal` with `ROUND_HALF_UP` quantization (`0.01`) to eliminate binary floating-point drift.
 
-   # Generate the comprehensive Excel workbook with dynamic formulas:
-   python tools/financial-modeling/cli.py --client tmk-it-solutions --generate-excel
-   ```
-3. **Inspect the Generated Workbook:**
-   The output workbook (`clients/<client-name>/financial-models/<client-name>_franchise_financial_model.xlsx`) contains dynamic Excel formulas for:
-   - Assumptions & Product Pricing
-   - Franchisee Initial Investment & Working Capital
-   - Monthly Sales & Renewal Projections (36-month horizon)
-   - Franchisee P&L & Cash Flow
-   - Franchisor Central P&L & Royalty Settlement
-   - Break-Even Analysis & Sensitivity Scenarios
-
----
-
-## 8. How to Create a Franchise Pitch Package
-
-1. **Synthesize Research & Value Proposition:** Review research briefs in `clients/<client-name>/research/`.
-2. **Instantiate Document Templates:** Use `templates/investor-presentations/` and `templates/brochures/`.
-3. **Generate PowerPoint Pitch Deck:**
-   ```bash
-   python tools/document-generation/generate_pitch_deck.py --client tmk-it-solutions
-   ```
-4. **Draft Franchise Prospectus and FAQ:** Complete the narrative documents in `clients/<client-name>/sales-marketing/`.
-
----
-
-## 9. How Analysts Should Contribute
-
-The workspace supports two dedicated data analysts working concurrently:
-- **Analyst 1 (Strategy, Research & Documentation):** Drives market research briefs, competitor benchmarking, franchise agreements, operational handbooks, and pitch materials. Tracks research in `analyst-workspace/research-methodology/research-evidence-register.md`.
-- **Analyst 2 (Finance, Analytics & Intelligence):** Builds unit economics, refines assumptions in `assumptions.json`, validates break-even calculations, models sensitivity scenarios, and monitors KPI benchmarks.
-
-Both analysts collaborate through `analyst-workspace/task-tracker/task-board.md` and execute peer reviews before submitting pull requests.
-
----
-
-## 10. Document Review & Quality Gates
-
-Every document and model must pass through the four-stage review pipeline:
-1. **Draft:** Initial creation by assigned analyst with assumption tags.
-2. **Peer Review:** Cross-functional review between Analyst 1 and Analyst 2.
-3. **Validation Gate:** Automated CI test suite passes with zero errors.
-4. **Client Approval:** Final sign-off logged in `clients/<client-name>/approvals/approval-matrix.md`.
-
----
-
-## 11. Automated Validation Tools
-
-Run the full automated test suite locally:
+### Running Projections & Generating Excel Workbooks
+Execute the command-line interface in `tools/financial-modeling/`:
 ```bash
-# Run pytest unit tests:
-pytest tests/
+# 1. Run simulation for base scenario:
+python tools/financial-modeling/cli.py --client tmk-it-solutions --scenario base
 
-# Run repository integrity and schema validation:
+# 2. Run simulation for conservative (stress-test) scenario:
+python tools/financial-modeling/cli.py --client tmk-it-solutions --scenario conservative
+
+# 3. Generate comprehensive, formula-linked Excel workbook:
+python tools/financial-modeling/cli.py --client tmk-it-solutions --generate-excel
+```
+Output workbook: `clients/tmk-it-solutions/financial-models/tmk_it_solutions_franchise_financial_model.xlsx`.
+
+---
+
+## 9. Institutional Document & Presentation Templates
+
+The `templates/` directory provides production-grade templates featuring standardized `{{...}}` placeholders:
+- **Business Plans:** `templates/business-plans/franchise-business-plan-template.md`
+- **Market Research:** `templates/market-research/market-analysis-template.md`
+- **Franchise Agreements:** `templates/franchise-agreements/master-franchise-agreement-template.md`
+- **Legal Policies:** `templates/legal-policies/revenue-sharing-policy-template.md`
+- **Investor Pitch Decks:** `templates/investor-presentations/pitch-deck-outline.md`
+- **Brochures & Prospectuses:** `templates/brochures/franchise-brochure-template.md`
+- **Operations Manuals:** `templates/operations-manuals/operations-manual-template.md`
+
+Generate PowerPoint presentations automatically:
+```bash
+python tools/document-generation/generate_pitch_deck.py --client tmk-it-solutions
+```
+
+---
+
+## 10. Contribution Guidelines & Standard Work Journey
+
+Contributors follow the **10-Stage Contribution Lifecycle** detailed in [docs/06-quality-and-approval/standard-work-journey.md](file:///d:/company/products/franchise-business-platform/docs/06-quality-and-approval/standard-work-journey.md):
+$$\text{Task Assigned} \to \text{Research} \to \text{Evidence Collection} \to \text{Analysis} \to \text{Draft Deliverable} \to \text{Self-Validation} \to \text{Pull Request} \to \text{Peer Review} \to \text{Management Approval} \to \text{Release}$$
+
+- Deliverables authored by **Analyst 1 (Strategy)** must be peer-reviewed by **Analyst 2 (Finance)**.
+- Models developed by **Analyst 2 (Finance)** must be peer-reviewed by **Analyst 1 (Strategy)**.
+- See [CONTRIBUTING.md](file:///d:/company/products/franchise-business-platform/CONTRIBUTING.md) for Git branch conventions.
+
+---
+
+## 11. Quality Gates & Automated Validation Suite
+
+Before committing code or opening pull requests, execute the automated verification suite:
+```bash
+# Run pytest unit test suite:
+python -m pytest tests/ -v
+
+# Run repository integrity, schema, and markdown link validation:
 python tools/validation/validate_repo.py
 ```
 
 The validation suite enforces:
-- Strict JSON Schema validation across all client datasets.
-- Decimal arithmetic precision and consistency across scenarios.
-- Existence of mandatory client files and deliverable structures.
-- Integrity of all internal Markdown relative links.
+- Strict JSON Schema validation against `schemas/*.schema.json`.
+- Decimal arithmetic consistency across scenarios.
+- Existence of mandatory client files.
+- Zero broken relative Markdown links across documentation.
 
 ---
 
-## 12. Implementation Status & Future Roadmap
+## 12. Current Roadmap & Implementation Status
 
 ### Current Status (V0.1 Bootstrap)
-- [x] Repository foundation, licensing, and CI workflows established.
-- [x] Complete generic franchise frameworks documented across 11 core domains.
-- [x] Reusable Python financial modeling engine with dynamic Excel workbook generator.
-- [x] Complete workspace for inaugural client: **TMK IT Solutions LLP**.
-- [x] Profiles for all 6 TMK software products with target customer analysis.
-- [x] Configurable FOFO commercial terms (Promotional ₹25,000 / Regular ₹50,000 fees; 40:60 revenue sharing).
-- [x] Automated PowerPoint deck generator and editable Excel financial model.
-- [x] Operational workspace for two Data Analysts with 6-week roadmap and task trackers.
-- [x] 15+ institutional document and presentation templates.
+- [x] Complete documentation navigation system with `START-HERE.md`, `DOCUMENTATION-MAP.md`, and `GLOSSARY.md`.
+- [x] 7 guided learning paths covering platform orientation, franchise fundamentals, playbooks, and onboarding.
+- [x] Dedicated execution playbooks for Analyst 1 (Strategy) and Analyst 2 (Finance).
+- [x] Reusable Python financial engine with dynamic Excel workbook generator.
+- [x] Complete isolated workspace for inaugural client: **TMK IT Solutions LLP**.
+- [x] Automated test suite and repository validator passing 100% green.
 
 ### Roadmap Outlook
 - **V1.0 (Q1 2027):** Multi-client support, interactive territory mapping CLI, automated PDF deliverable compiler.
 - **V2.0 (Q3 2027):** Cloud-native backend (ASP.NET Core Web API + PostgreSQL), real-time financial simulation engine, multi-tenant RBAC.
 - **V3.0 (Q1 2028):** Full SaaS portal (React + TypeScript), automated franchise lead portal, predictive territory scoring AI.
+
+---
+
+## 13. Next Steps & Navigation
+
+Ready to dive in? Choose your next destination:
+
+- **New Analyst?** Head straight to 👉 **[docs/START-HERE.md](file:///d:/company/products/franchise-business-platform/docs/START-HERE.md)**.
+- **Ready for Day 1?** Open 👉 **[Section 7: First-Week Onboarding](file:///d:/company/products/franchise-business-platform/docs/07-first-week-onboarding/README.md)**.
+- **Looking for Tasks?** Check the 👉 **[Analyst Task Board](file:///d:/company/products/franchise-business-platform/analyst-workspace/task-tracker/task-board.md)**.
+- **Need Terminology?** Consult the 👉 **[Glossary](file:///d:/company/products/franchise-business-platform/docs/GLOSSARY.md)**.
