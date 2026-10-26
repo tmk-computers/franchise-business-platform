@@ -177,6 +177,6 @@ Validation PASSED successfully with 0 errors!
 ---
 
 ## 7. Remaining Documentation Gaps & Recommended Improvements
-1. **Interactive CLI Wizard:** As noted in the V1.0 roadmap, build an interactive CLI prompt (`python tools/cli/wizard.py`) to guide analysts interactively when creating new client workspaces.
+1. **Interactive CLI Wizard:** As noted in the V1.0 roadmap, build an interactive CLI prompt wizard tool (`tools/client-onboarding/wizard.py`) to guide analysts interactively when creating new client workspaces.
 2. **Visual Workflow Diagrams:** Render SVG architecture diagrams alongside Mermaid charts for offline viewing.
 3. **Automated Markdown Linter in CI:** Add a pre-commit hook running `validate_repo.py` automatically before any Git commit.
