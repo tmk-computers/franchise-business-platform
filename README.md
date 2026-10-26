@@ -7,16 +7,19 @@ A systematic, client-independent, and industry-agnostic platform engineered to r
 > [!IMPORTANT]
 > ### 🚀 New to the Platform? Start Here!
 > If you are a new Data Analyst, Engineer, or Contributor, your primary orientation gateway is:
-> 👉 **[docs/START-HERE.md](file:///d:/company/products/franchise-business-platform/docs/START-HERE.md)**
+> 👉 **[docs/START-HERE.md](docs/START-HERE.md)**
 >
 > | Quick Navigation Link | Target Content |
 > |---|---|
-> | **[docs/START-HERE.md](file:///d:/company/products/franchise-business-platform/docs/START-HERE.md)** | Executive welcome, platform vs client distinction, and onboarding guide |
-> | **[docs/DOCUMENTATION-MAP.md](file:///d:/company/products/franchise-business-platform/docs/DOCUMENTATION-MAP.md)** | Complete directory tree and file index across the entire repository |
-> | **[docs/GLOSSARY.md](file:///d:/company/products/franchise-business-platform/docs/GLOSSARY.md)** | Alphabetized glossary of franchise, financial, regulatory, and platform terms |
-> | **[Analyst 1 Playbook](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-1-strategy-playbook.md)** | Execution manual for Business Strategy, Market Research & Documentation |
-> | **[Analyst 2 Playbook](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-2-finance-playbook.md)** | Execution manual for Financial Modeling, Analytics & Python/Excel Engines |
-> | **[First-Week Onboarding Program](file:///d:/company/products/franchise-business-platform/docs/07-first-week-onboarding/README.md)** | 5-Day structured onboarding curriculum and interactive checklist |
+> | **[docs/START-HERE.md](docs/START-HERE.md)** | Executive welcome, platform vs client distinction, and onboarding guide |
+> | **[docs/DOCUMENTATION-MAP.md](docs/DOCUMENTATION-MAP.md)** | Complete directory tree and file index across the entire repository |
+> | **[docs/GLOSSARY.md](docs/GLOSSARY.md)** | Alphabetized glossary of franchise, financial, regulatory, and platform terms |
+> | **[Analyst 1 Playbook](docs/05-analyst-playbooks/analyst-1-strategy-playbook.md)** | Execution manual for Business Strategy, Market Research & Documentation |
+> | **[Analyst 2 Playbook](docs/05-analyst-playbooks/analyst-2-finance-playbook.md)** | Execution manual for Financial Modeling, Analytics & Python/Excel Engines |
+> | **[First-Week Onboarding Program](docs/07-first-week-onboarding/README.md)** | 5-Day structured onboarding curriculum and interactive checklist |
+> | **[Launch Readiness Framework](frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md)** | 12-workstream methodology, launch gates, and blocker resolution |
+> | **[TMK Launch Checklist & Tracker](clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.md)** | Master 65-task readiness matrix, gates assessment, and Excel tracker |
+
 
 ---
 
@@ -89,13 +92,13 @@ The platform provides dedicated comparative frameworks and economic models for a
 
 To guide new contributors through systematic onboarding, the platform provides 7 numbered learning paths in `docs/`:
 
-1. **[01-Platform Orientation](file:///d:/company/products/franchise-business-platform/docs/01-platform-orientation/README.md):** Strategic vision, SaaS architecture, tenant isolation, and client independence.
-2. **[02-Franchise Fundamentals](file:///d:/company/products/franchise-business-platform/docs/02-franchise-fundamentals/README.md):** Archetypes (FOFO/FOCO/COCO), RACI governance, pass-through GST segregation, and territory rules.
-3. **[03-Repository Guide](file:///d:/company/products/franchise-business-platform/docs/03-repository-guide/README.md):** Directory tour, JSON Schema contracts, mathematical standards, and testing conventions.
-4. **[04-Client Workspaces](file:///d:/company/products/franchise-business-platform/docs/04-client-workspaces/README.md):** Multi-tenant isolation and deep-dive into the TMK IT Solutions baseline.
-5. **[05-Analyst Playbooks](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/README.md):** Role manuals for [Analyst 1 (Strategy)](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-1-strategy-playbook.md) and [Analyst 2 (Finance)](file:///d:/company/products/franchise-business-platform/docs/05-analyst-playbooks/analyst-2-finance-playbook.md).
-6. **[06-Quality and Approval](file:///d:/company/products/franchise-business-platform/docs/06-quality-and-approval/README.md):** 10-stage contribution lifecycle, peer review gates, and deliverable sign-offs.
-7. **[07-First-Week Onboarding](file:///d:/company/products/franchise-business-platform/docs/07-first-week-onboarding/README.md):** 5-day structured syllabus and interactive onboarding checklist.
+1. **[01-Platform Orientation](docs/01-platform-orientation/README.md):** Strategic vision, SaaS architecture, tenant isolation, and client independence.
+2. **[02-Franchise Fundamentals](docs/02-franchise-fundamentals/README.md):** Archetypes (FOFO/FOCO/COCO), RACI governance, pass-through GST segregation, and territory rules.
+3. **[03-Repository Guide](docs/03-repository-guide/README.md):** Directory tour, JSON Schema contracts, mathematical standards, and testing conventions.
+4. **[04-Client Workspaces](docs/04-client-workspaces/README.md):** Multi-tenant isolation and deep-dive into the TMK IT Solutions baseline.
+5. **[05-Analyst Playbooks](docs/05-analyst-playbooks/README.md):** Role manuals for [Analyst 1 (Strategy)](docs/05-analyst-playbooks/analyst-1-strategy-playbook.md) and [Analyst 2 (Finance)](docs/05-analyst-playbooks/analyst-2-finance-playbook.md).
+6. **[06-Quality and Approval](docs/06-quality-and-approval/README.md):** 10-stage contribution lifecycle, peer review gates, and deliverable sign-offs.
+7. **[07-First-Week Onboarding](docs/07-first-week-onboarding/README.md):** 5-day structured syllabus and interactive onboarding checklist.
 
 ---
 
@@ -167,7 +170,7 @@ Client workspaces reside in `clients/<client-slug>/`. The inaugural client is **
   - Working capital cushion: ₹50,000–₹1,00,000.
 - **Territory Strategy:** Sub-district administrative boundaries (Talukas / Tehsils) with a 90-day Deal Registration Lock.
 
-To onboard a future client, follow the [Client Onboarding Playbook](file:///d:/company/products/franchise-business-platform/docs/implementation-guides/client-onboarding-playbook.md).
+To onboard a future client, follow the [Client Onboarding Playbook](docs/implementation-guides/client-onboarding-playbook.md).
 
 ---
 
@@ -211,12 +214,12 @@ python tools/document-generation/generate_pitch_deck.py --client tmk-it-solution
 
 ## 10. Contribution Guidelines & Standard Work Journey
 
-Contributors follow the **10-Stage Contribution Lifecycle** detailed in [docs/06-quality-and-approval/standard-work-journey.md](file:///d:/company/products/franchise-business-platform/docs/06-quality-and-approval/standard-work-journey.md):
+Contributors follow the **10-Stage Contribution Lifecycle** detailed in [docs/06-quality-and-approval/standard-work-journey.md](docs/06-quality-and-approval/standard-work-journey.md):
 $$\text{Task Assigned} \to \text{Research} \to \text{Evidence Collection} \to \text{Analysis} \to \text{Draft Deliverable} \to \text{Self-Validation} \to \text{Pull Request} \to \text{Peer Review} \to \text{Management Approval} \to \text{Release}$$
 
 - Deliverables authored by **Analyst 1 (Strategy)** must be peer-reviewed by **Analyst 2 (Finance)**.
 - Models developed by **Analyst 2 (Finance)** must be peer-reviewed by **Analyst 1 (Strategy)**.
-- See [CONTRIBUTING.md](file:///d:/company/products/franchise-business-platform/CONTRIBUTING.md) for Git branch conventions.
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for Git branch conventions.
 
 ---
 
@@ -260,7 +263,7 @@ The validation suite enforces:
 
 Ready to dive in? Choose your next destination:
 
-- **New Analyst?** Head straight to 👉 **[docs/START-HERE.md](file:///d:/company/products/franchise-business-platform/docs/START-HERE.md)**.
-- **Ready for Day 1?** Open 👉 **[Section 7: First-Week Onboarding](file:///d:/company/products/franchise-business-platform/docs/07-first-week-onboarding/README.md)**.
-- **Looking for Tasks?** Check the 👉 **[Analyst Task Board](file:///d:/company/products/franchise-business-platform/analyst-workspace/task-tracker/task-board.md)**.
-- **Need Terminology?** Consult the 👉 **[Glossary](file:///d:/company/products/franchise-business-platform/docs/GLOSSARY.md)**.
+- **New Analyst?** Head straight to 👉 **[docs/START-HERE.md](docs/START-HERE.md)**.
+- **Ready for Day 1?** Open 👉 **[Section 7: First-Week Onboarding](docs/07-first-week-onboarding/README.md)**.
+- **Looking for Tasks?** Check the 👉 **[Analyst Task Board](analyst-workspace/task-tracker/task-board.md)**.
+- **Need Terminology?** Consult the 👉 **[Glossary](docs/GLOSSARY.md)**.
