@@ -17,6 +17,7 @@ A systematic, client-independent, and industry-agnostic platform engineered to r
 > | **[Analyst 1 Playbook](docs/05-analyst-playbooks/analyst-1-strategy-playbook.md)** | Execution manual for Business Strategy, Market Research & Documentation |
 > | **[Analyst 2 Playbook](docs/05-analyst-playbooks/analyst-2-finance-playbook.md)** | Execution manual for Financial Modeling, Analytics & Python/Excel Engines |
 > | **[First-Week Onboarding Program](docs/07-first-week-onboarding/README.md)** | 5-Day structured onboarding curriculum and interactive checklist |
+> | **[Franchise Investor Academy](education/franchise-investor-academy/README.md)** | 10-Volume educational eBook library, learning paths & 100-point checklist |
 > | **[Launch Readiness Framework](frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md)** | 12-workstream methodology, launch gates, and blocker resolution |
 > | **[TMK Launch Checklist & Tracker](clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.md)** | Master 65-task readiness matrix, gates assessment, and Excel tracker |
 
@@ -130,6 +131,8 @@ franchise-business-platform/
 ├── frameworks/                        # Reusable, client-agnostic business frameworks (11 domains)
 ├── templates/                         # Standardized document and presentation templates
 ├── industry-models/                   # Vertical-specific economics (software, retail, etc.)
+├── education/                         # Educational academies & curricula
+│   └── franchise-investor-academy/    # 10-Volume Franchise Investor eBook Library & Checklists
 │
 ├── clients/                           # Client-specific workspaces (strictly isolated)
 │   └── tmk-it-solutions/              # Inaugural client: TMK IT Solutions LLP

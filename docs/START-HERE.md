@@ -129,6 +129,12 @@ franchise-business-platform/
   - Curriculum: [franchisee-training-curriculum.template.md](../templates/training/franchisee-training-curriculum.template.md)
   - Governance: [franchise-advisory-council-charter.template.md](../templates/governance/franchise-advisory-council-charter.template.md)
   - Pilot launch: [pilot-launch-protocol.template.md](../templates/pilot-launch/pilot-launch-protocol.template.md)
+- **Franchise Investor Academy (`education/`):**
+  When onboarding prospective investors, educating franchise buyers, or deploying due diligence checklists, refer to the [Franchise Investor Academy](../education/franchise-investor-academy/README.md).
+  - [10-Volume Master eBook Library](../education/franchise-investor-academy/README.md#1-master-curriculum-the-10-volume-ebook-library): Complete curriculum spanning foundations, archetypes, unit economics, contracts, and multi-unit scale.
+  - [100-Point Franchise Due Diligence Checklist](../education/franchise-investor-academy/DUE_DILIGENCE_CHECKLIST.md): Practical decision audit tool across 7 evaluation pillars.
+  - [Curriculum & Learning Paths Guide](../education/franchise-investor-academy/LEARNING_PATHS.md): Beginner, Intermediate, and Advanced tracks.
+  - [Investor Glossary](../education/franchise-investor-academy/GLOSSARY.md): Plain-language definitions of key franchise terms.
 
 ---
 

@@ -360,9 +360,99 @@ class RepoValidator:
         if broken_docs == 0:
             print(f"  [PASS] All {total_docs} related document paths verified on disk.")
 
+    def validate_education_architecture(self):
+        """Verify existence and completeness of Franchise Investor Academy assets."""
+        print("\n--- 6. Validating Franchise Investor Academy Architecture ---")
+        academy_root = os.path.join(self.repo_root, "education", "franchise-investor-academy")
+        if not os.path.exists(academy_root):
+            self.log_error("Franchise Investor Academy directory not found: education/franchise-investor-academy")
+            return
+
+        # 1. Core Academy Entry Points & Decision Tools
+        core_files = [
+            "README.md",
+            "LEARNING_PATHS.md",
+            "DUE_DILIGENCE_CHECKLIST.md",
+            "GLOSSARY.md",
+            "EDITORIAL_STANDARDS.md",
+            "PUBLISHING_WORKFLOW.md"
+        ]
+        for cf in core_files:
+            cfp = os.path.join(academy_root, cf)
+            if not os.path.exists(cfp):
+                self.log_error(f"Missing Academy core file: education/franchise-investor-academy/{cf}")
+            else:
+                print(f"  [PASS] Academy core guide found: {cf}")
+
+        # 2. 10-Volume Library Directories & Key Assets
+        books = [
+            ("book-01-first-time-investor-handbook", [
+                "README.md",
+                "chapter-01-what-is-franchising.md",
+                "chapter-02-myths-vs-reality.md",
+                "chapter-03-archetypes-and-models.md",
+                "chapter-04-financial-mechanics.md",
+                "chapter-05-investor-self-assessment.md",
+                "chapter-06-red-flags-and-due-diligence.md",
+                "quizzes-and-case-studies.md"
+            ]),
+            ("book-02-business-models-and-archetypes", [
+                "README.md",
+                "chapter-01-fofo-operating-mechanics.md"
+            ]),
+            ("book-03-unit-economics-and-financial-literacy", [
+                "README.md",
+                "chapter-01-understanding-capex-opex.md"
+            ]),
+            ("book-04-due-diligence-playbook", [
+                "README.md",
+                "chapter-01-investigating-the-franchisor.md"
+            ]),
+            ("book-05-franchise-agreements-and-legal-rights", [
+                "README.md",
+                "chapter-01-anatomy-of-a-franchise-contract.md"
+            ]),
+            ("book-06-sector-by-sector-economics", [
+                "README.md",
+                "chapter-01-cross-industry-comparison.md"
+            ]),
+            ("book-07-site-selection-and-territory-intelligence", [
+                "README.md",
+                "chapter-01-demographic-and-catchment-analysis.md"
+            ]),
+            ("book-08-working-capital-and-cash-flow", [
+                "README.md",
+                "chapter-01-the-working-capital-j-curve.md"
+            ]),
+            ("book-09-multi-unit-franchising", [
+                "README.md",
+                "chapter-01-transitioning-from-1-to-5-units.md"
+            ]),
+            ("book-10-franchise-exits-and-resales", [
+                "README.md",
+                "chapter-01-valuation-and-exit-planning.md"
+            ])
+        ]
+
+        verified_book_assets = 0
+        for b_dir, b_files in books:
+            b_path = os.path.join(academy_root, b_dir)
+            if not os.path.exists(b_path):
+                self.log_error(f"Missing eBook directory: education/franchise-investor-academy/{b_dir}")
+                continue
+            for bf in b_files:
+                bfp = os.path.join(b_path, bf)
+                if not os.path.exists(bfp):
+                    self.log_error(f"Missing volume file: education/franchise-investor-academy/{b_dir}/{bf}")
+                else:
+                    verified_book_assets += 1
+                    print(f"  [PASS] Verified volume asset: {b_dir}/{bf}")
+
+        print(f"  [PASS] All 10 eBook volumes and {verified_book_assets} assets verified.")
+
     def validate_markdown_links(self):
         """Check for broken relative file links in markdown files."""
-        print("\n--- 6. Validating Markdown Relative Links ---")
+        print("\n--- 7. Validating Markdown Relative Links ---")
         link_pattern = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
         broken_links = 0
         total_links = 0
@@ -376,7 +466,11 @@ class RepoValidator:
                     with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
                         content = f.read()
 
-                    matches = link_pattern.findall(content)
+                    # Strip fenced code blocks and inline code spans to prevent false alarms on syntax guides
+                    cleaned_content = re.sub(r'```.*?```', '', content, flags=re.DOTALL)
+                    cleaned_content = re.sub(r'`[^`\n]+`', '', cleaned_content)
+
+                    matches = link_pattern.findall(cleaned_content)
                     for text, target in matches:
                         target = target.strip()
                         # Ignore external links, anchor links, and mailto
@@ -410,6 +504,7 @@ class RepoValidator:
         self.validate_json_schemas()
         self.validate_financial_consistency()
         self.validate_launch_readiness()
+        self.validate_education_architecture()
         self.validate_markdown_links()
 
         print("\n================ VALIDATION SUMMARY ================")

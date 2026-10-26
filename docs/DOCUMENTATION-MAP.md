@@ -88,3 +88,25 @@ graph TD
 - [Assumptions Register](../analyst-workspace/research-methodology/assumptions-register.md)
 - [Pull Request Checklist](../analyst-workspace/quality-checklists/pull-request-review-checklist.md)
 - [Deliverable Acceptance Checklist](../analyst-workspace/quality-checklists/deliverable-acceptance-checklist.md)
+
+---
+
+### 2.6. Franchise Investor Academy (`education/franchise-investor-academy/`)
+- [Academy Master Portal](../education/franchise-investor-academy/README.md)
+- [Learning Paths & Curriculum](../education/franchise-investor-academy/LEARNING_PATHS.md)
+- [100-Point Franchise Due Diligence Checklist](../education/franchise-investor-academy/DUE_DILIGENCE_CHECKLIST.md)
+- [Investor Terminology Glossary](../education/franchise-investor-academy/GLOSSARY.md)
+- [Editorial Standards & Review Gates](../education/franchise-investor-academy/EDITORIAL_STANDARDS.md)
+- [Multi-Format Publishing Workflow](../education/franchise-investor-academy/PUBLISHING_WORKFLOW.md)
+- **The 10-Volume Library:**
+  - [Book 1: The First-Time Franchise Investor's Handbook](../education/franchise-investor-academy/book-01-first-time-investor-handbook/README.md) *(v1.0.0 Complete)*
+  - [Book 2: Demystifying Business Models & Operating Archetypes](../education/franchise-investor-academy/book-02-business-models-and-archetypes/README.md) *(v0.1.0 Active Draft)*
+  - [Book 3: Franchise Unit Economics & Financial Literacy](../education/franchise-investor-academy/book-03-unit-economics-and-financial-literacy/README.md) *(v0.1.0 Active Draft)*
+  - [Book 4: The 100-Point Franchise Due Diligence Playbook](../education/franchise-investor-academy/book-04-due-diligence-playbook/README.md) *(v0.1.0 Active Draft)*
+  - [Book 5: Unpacking the Franchise Agreement & Legal Rights](../education/franchise-investor-academy/book-05-franchise-agreements-and-legal-rights/README.md) *(v0.1.0 Active Draft)*
+  - [Book 6: Sector-by-Sector Franchise Economics](../education/franchise-investor-academy/book-06-sector-by-sector-economics/README.md) *(v0.1.0 Active Draft)*
+  - [Book 7: Site Selection, Territory Intelligence & Real Estate](../education/franchise-investor-academy/book-07-site-selection-and-territory-intelligence/README.md) *(v0.1.0 Active Draft)*
+  - [Book 8: Working Capital Management & Cash Flow Survival](../education/franchise-investor-academy/book-08-working-capital-and-cash-flow/README.md) *(v0.1.0 Active Draft)*
+  - [Book 9: Multi-Unit Franchising & Empire Building](../education/franchise-investor-academy/book-09-multi-unit-franchising/README.md) *(v0.1.0 Active Draft)*
+  - [Book 10: Franchise Exits, Resales & Succession Planning](../education/franchise-investor-academy/book-10-franchise-exits-and-resales/README.md) *(v0.1.0 Active Draft)*
+
