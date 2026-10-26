@@ -105,24 +105,30 @@ franchise-business-platform/
 │   ├── 06-quality-and-approval/   # Module 6: Standard work journey, peer review & CI
 │   └── 07-first-week-onboarding/  # Module 7: Day-by-day 5-day onboarding journey & checklist
 │
-├── frameworks/                    # 11 Generic, reusable franchise business frameworks
-├── templates/                     # 17 Reusable document, presentation & policy templates
+├── frameworks/                    # 12 Generic, reusable franchise business frameworks (incl. launch readiness)
+├── templates/                     # 21 Reusable document, presentation, policy & checklist templates
 ├── industry-models/               # 8 Industry vertical economic profiles
 ├── clients/                       # Isolated client workspaces (e.g., tmk-it-solutions)
-├── schemas/                       # 7 JSON Schema Draft-07 data contracts
-├── tools/                         # Python calculation engine, Excel generator, validator
+├── schemas/                       # 8 JSON Schema Draft-07 data contracts (incl. launch-readiness)
+├── tools/                         # Python calculation engines, Excel generators, launch trackers, validator
 ├── analyst-workspace/             # Task board, evidence register, assumptions log, checklists
 └── tests/                         # Automated pytest unit and integration test suite
 ```
 
 ---
 
-## 7. Where to Find Frameworks and Templates
+## 7. Where to Find Frameworks, Templates and Launch Readiness
 
 - **Generic Frameworks (`frameworks/`):**
-  When designing a franchise model, evaluating financial feasibility, or structuring a territory policy, consult [frameworks/](file:///d:/company/products/franchise-business-platform/frameworks/). Every framework follows a standardized 9-section structure.
+  When designing a franchise model, evaluating financial feasibility, structuring a territory policy, or managing go-live readiness, consult [frameworks/](file:///d:/company/products/franchise-business-platform/frameworks/). Every framework follows a standardized 9-section structure. Key frameworks include:
+  - [Franchise Launch Readiness Framework](file:///d:/company/products/franchise-business-platform/frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md): 12-workstream methodology, mathematical readiness scoring ($WRI$, $PLRI$), and 7-stage maturity model.
+  - [Launch Gates & Critical Blockers](file:///d:/company/products/franchise-business-platform/frameworks/franchise-launch-readiness/launch-gates-and-blockers.md): Gates 1–6 entry/exit governance and Blocker ledger taxonomy (`BLK-001` to `BLK-007`).
 - **Reusable Templates (`templates/`):**
-  When authoring a business plan, pitch presentation, agreement draft, or operations manual, start with a template in [templates/](file:///d:/company/products/franchise-business-platform/templates/). All templates use standardized `{{PLACEHOLDER}}` tags.
+  When authoring a business plan, pitch presentation, agreement draft, operations manual, or onboarding kit, start with a template in [templates/](file:///d:/company/products/franchise-business-platform/templates/). All templates use standardized `{{PLACEHOLDER}}` tags.
+  - Due diligence: [franchise-due-diligence-questionnaire.template.md](file:///d:/company/products/franchise-business-platform/templates/checklists/franchise-due-diligence-questionnaire.template.md)
+  - Curriculum: [franchisee-training-curriculum.template.md](file:///d:/company/products/franchise-business-platform/templates/training/franchisee-training-curriculum.template.md)
+  - Governance: [franchise-advisory-council-charter.template.md](file:///d:/company/products/franchise-business-platform/templates/governance/franchise-advisory-council-charter.template.md)
+  - Pilot launch: [pilot-launch-protocol.template.md](file:///d:/company/products/franchise-business-platform/templates/pilot-launch/pilot-launch-protocol.template.md)
 
 ---
 
@@ -135,6 +141,8 @@ Client workspaces live under `clients/<client-slug>/`.
   2. [Commercial Assumptions](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/profile/commercial-assumptions.md)
   3. [Product Catalog](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/products/products-catalog.json)
   4. [FOFO Operating Model](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/franchise-model/fofo-operating-model.md)
+  5. [TMK Launch Readiness Checklist](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.md) & [Gates Assessment](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/launch-readiness/tmk-launch-gates-assessment.md)
+  6. [Interactive Excel Launch Tracker](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/launch-readiness/tmk_launch_readiness_tracker.xlsx)
 
 ---
 

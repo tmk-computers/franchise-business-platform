@@ -19,7 +19,8 @@ As Analyst 1, you own the qualitative, strategic, territorial, operational, and 
 10. [Franchise Operations Manuals & Support SLAs](#10-franchise-operations-manuals--support-slas)
 11. [Draft Policies & Franchise Agreements](#11-draft-policies--franchise-agreements)
 12. [Management Presentations & Executive Decision Papers](#12-management-presentations--executive-decision-papers)
-13. [Analyst 1 Quality Checklist & Peer Review Hand-Off](#13-analyst-1-quality-checklist--peer-review-hand-off)
+13. [Franchise Launch Readiness Execution & Workstream Governance](#13-franchise-launch-readiness-execution--workstream-governance)
+14. [Analyst 1 Quality Checklist & Peer Review Hand-Off](#14-analyst-1-quality-checklist--peer-review-hand-off)
 
 ---
 
@@ -236,7 +237,48 @@ Prepare structured executive summaries and decision memos for client C-level man
 
 ---
 
-## 13. Analyst 1 Quality Checklist & Peer Review Hand-Off
+## 13. Franchise Launch Readiness Execution & Workstream Governance
+
+### Purpose & Role Ownership
+The platform mandates a rigorous 12-workstream launch readiness framework ([franchise-launch-readiness-framework.md](file:///d:/company/products/franchise-business-platform/frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md)) to guide client go-live operations.
+
+As Analyst 1, you own the qualitative, strategic, documentation, and operational items across the 12 workstreams.
+
+### Workstream Ownership Breakdown for Analyst 1
+1. **Workstream 1 (Business Model & Commercial Strategy):**
+   - Author and calibrate franchise models, unit economics narratives, and territory exclusivity rules.
+   - Example deliverable: [fofo-operating-model.md](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/franchise-model/fofo-operating-model.md).
+2. **Workstream 2 (Legal, Regulatory & Intellectual Property):**
+   - Draft non-binding commercial policy and contract blueprints for review by retained legal counsel.
+   - Coordinate resolution of Blocker `BLK-001` (Retained Legal Counsel Review of Master Agreement).
+3. **Workstream 3 (Six-Product Sales Readiness):**
+   - Author product catalogs, sales qualification playbooks, and demonstration scripts.
+   - Maintain client catalogs such as [products-catalog.json](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/products/products-catalog.json).
+4. **Workstream 5 (Franchise Operations & SOPs):**
+   - Author franchisee onboarding handbooks, central support SLAs, and dispute resolution workflows.
+   - Example deliverable: [support-sla-matrix.md](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/operations/support-sla-matrix.md).
+5. **Workstream 7 (Franchise Recruitment & Marketing):**
+   - Author prospectuses, investor brochures, FAQs, and web recruitment copy.
+   - Example deliverable: [franchise-prospectus.md](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/sales-marketing/franchise-prospectus.md).
+6. **Workstream 8 (Training & Certification):**
+   - Author 5-day franchisee onboarding curricula, salesperson LMS modules, and certification exams.
+   - Example deliverable: [franchise-training-curriculum.md](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/operations/franchise-training-curriculum.md).
+7. **Workstream 10 (Partner Onboarding Documents):**
+   - Author standardized application forms, due diligence questionnaires, and territory acceptance deeds.
+   - Example deliverable: [franchise-application-form.md](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/sales-marketing/franchise-application-form.md).
+8. **Workstream 11 (Governance & Performance Monitoring):**
+   - Draft Franchise Advisory Council (FAC) charters, audit inspection checklists, and compliance scorecards.
+9. **Workstream 12 (Pilot Launch & Final Approval):**
+   - Structure pilot rollout protocols, define entry/exit milestone criteria, and monitor regional pilots.
+   - Example deliverable: [pilot-launch-protocol.md](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/operations/pilot-launch-protocol.md).
+
+### Task Maturity Progression
+Never mark a task complete simply because a draft exists! Strictly adhere to the 7-stage maturity hierarchy:
+`Not Started` ──> `In Progress` ──> `Document Created` ──> `Document Reviewed` ──> `Document Approved` ──> `Process Implemented` ──> `Process Verified`
+
+---
+
+## 14. Analyst 1 Quality Checklist & Peer Review Hand-Off
 
 Before submitting any deliverable for peer review by Analyst 2, execute this mandatory self-audit:
 
@@ -247,5 +289,6 @@ Before submitting any deliverable for peer review by Analyst 2, execute this man
 [ ] 4. Legal Disclaimers: Financial risk and non-binding legal disclaimers are prominently displayed.
 [ ] 5. Clickable Relative Links: All internal cross-references use verified file:/// markdown links.
 [ ] 6. Tenant Isolation: Document is placed inside clients/<client-slug>/, not in generic platform directories.
-[ ] 7. Dual-Analyst Review Assigned: Logged in analyst-workspace/task-tracker/task-board.md under "Peer Review".
+[ ] 7. Launch Readiness Tagged: Deliverable is mapped to a specific Task ID in clients/<client-slug>/launch-readiness/.
+[ ] 8. Dual-Analyst Review Assigned: Logged in analyst-workspace/task-tracker/task-board.md under "Peer Review".
 ```

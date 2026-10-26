@@ -20,7 +20,8 @@ As Analyst 2, you own the mathematical, quantitative, computational, and financi
 11. [KPI Architecture & Dashboard Design](#11-kpi-architecture--dashboard-design)
 12. [Multi-Scenario Sensitivity Modeling](#12-multi-scenario-sensitivity-modeling)
 13. [CLI Commands, Excel Generation & Model Validation](#13-cli-commands-excel-generation--model-validation)
-14. [Analyst 2 Quality Checklist & Cross-Review Hand-Off](#14-analyst-2-quality-checklist--cross-review-hand-off)
+14. [Franchise Launch Readiness Quantitative Analytics & Tracker Generation](#14-franchise-launch-readiness-quantitative-analytics--tracker-generation)
+15. [Analyst 2 Quality Checklist & Cross-Review Hand-Off](#15-analyst-2-quality-checklist--cross-review-hand-off)
 
 ---
 
@@ -264,7 +265,47 @@ python tools/validation/validate_repo.py
 
 ---
 
-## 14. Analyst 2 Quality Checklist & Cross-Review Hand-Off
+## 14. Franchise Launch Readiness Quantitative Analytics & Tracker Generation
+
+### Purpose & Role Ownership
+Under the 12-workstream launch readiness framework ([franchise-launch-readiness-framework.md](file:///d:/company/products/franchise-business-platform/frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md)), Analyst 2 is accountable for quantitative verification, data schema compliance, automated Excel tracker generation, and financial readiness indicators.
+
+### Workstream Ownership Breakdown for Analyst 2
+1. **Workstream 4 (Finance, Banking & Accounting):**
+   - Verify commercial split mechanics, tax segregation routines (e.g. 18% GST passthrough), and escrow account settlement workflows.
+   - Monitor clearance of Blocker `BLK-002` (Dedicated Escrow/Settlement Bank Account Configuration).
+2. **Workstream 6 (Franchise Management Technology):**
+   - Audit client JSON data contracts against schemas (e.g., `schemas/launch-readiness.schema.json`).
+   - Monitor technical blockers including `BLK-003` (Demonstration Sandbox Cloud Deployment) and `BLK-007` (90-Day CRM Deal Lock Engine).
+3. **Workstream 1 (Commercial Modeling Verification):**
+   - Calibrate unit economics, operational break-even unit sales, and working capital drawdowns.
+
+### Generating the Interactive Excel Launch Tracker
+Analyst 2 generates and validates the client launch readiness workbook using the platform tool:
+
+```bash
+# Generate interactive launch readiness tracker:
+python tools/launch-readiness/generate_readiness_tracker.py --client tmk-it-solutions
+```
+
+Output workbook location:
+`clients/tmk-it-solutions/launch-readiness/tmk_launch_readiness_tracker.xlsx`
+
+**Workbook Structure & Formula Standards:**
+- **5 Interlinked Sheets:** `Readiness Dashboard`, `Workstream Summary`, `Owner Summary`, `Master Checklist`, `Gates & Blockers`.
+- **Formulas:** All formulas must be strictly uppercase (`COUNTIF`, `COUNTIFS`, `COUNTA`, `IF`, `ROUND`, `SUM`).
+- **Data Validation:** Dynamic dropdowns for Status and Priority columns.
+
+### Mathematical Readiness Indexing
+Analyst 2 computes the quantitative progress metrics defined in the framework:
+- **Workstream Readiness Index:**
+  $$WRI_w = \frac{\sum_{i=1}^{N_w} (w_i \cdot S_i)}{\sum_{i=1}^{N_w} w_i}$$
+- **Platform Launch Readiness Index:**
+  $$PLRI = \sum_{w=1}^{12} (\Omega_w \cdot WRI_w)$$
+
+---
+
+## 15. Analyst 2 Quality Checklist & Cross-Review Hand-Off
 
 Before submitting any financial model or data analysis for peer review by Analyst 1:
 
@@ -275,6 +316,7 @@ Before submitting any financial model or data analysis for peer review by Analys
 [ ] 4. Schema Compliance: assumptions.json passes schemas/financial-assumptions.schema.json validation.
 [ ] 5. Dynamic Excel Formulas: Excel sheets use valid uppercase formulas (SUM, AVERAGE, ROUND, IF, MAX) with zero hardcoded numbers in formula cells.
 [ ] 6. Multi-Scenario Validation: Projections tested across conservative, base, and optimistic scenarios.
-[ ] 7. Automated Test Suite Passes: pytest tests/ returns 100% green.
-[ ] 8. Cross-Review Hand-Off: Model logged in analyst-workspace/task-tracker/task-board.md for Analyst 1 sign-off.
+[ ] 7. Launch Tracker Validated: tmk_launch_readiness_tracker.xlsx generated cleanly with openpyxl and formulas verified.
+[ ] 8. Automated Test Suite Passes: pytest tests/ returns 100% green.
+[ ] 9. Cross-Review Hand-Off: Model logged in analyst-workspace/task-tracker/task-board.md for Analyst 1 sign-off.
 ```

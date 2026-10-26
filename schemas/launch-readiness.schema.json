@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://franchise-platform.local/schemas/launch-readiness.schema.json",
+  "title": "FranchiseLaunchReadiness",
+  "description": "Schema contract for the 12-workstream franchise launch readiness checklist and gating assessment",
+  "type": "object",
+  "required": [
+    "clientId",
+    "version",
+    "lastUpdated",
+    "workstreams",
+    "launchGates",
+    "items"
+  ],
+  "properties": {
+    "clientId": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "string"
+    },
+    "workstreams": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "launchGates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gateId", "name", "targetDate", "status", "workstreamsCovered"],
+        "properties": {
+          "gateId": { "type": "string" },
+          "name": { "type": "string" },
+          "targetDate": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["Pending", "In Progress", "Gate Cleared", "Blocked"]
+          },
+          "workstreamsCovered": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "taskId",
+          "workstream",
+          "title",
+          "description",
+          "priority",
+          "ownerRole",
+          "reviewerRole",
+          "classification",
+          "status",
+          "dependencies",
+          "requiredEvidence",
+          "relatedDocuments",
+          "acceptanceCriteria",
+          "targetDate",
+          "approvalAuthority",
+          "launchGate",
+          "isBlocker"
+        ],
+        "properties": {
+          "taskId": {
+            "type": "string",
+            "pattern": "^FLR-[A-Z]{3}-[0-9]{3}$"
+          },
+          "workstream": {
+            "type": "string",
+            "enum": [
+              "Business Model & Commercial Strategy",
+              "Legal, Regulatory & Intellectual Property",
+              "Six-Product Sales Readiness",
+              "Finance, Banking & Accounting",
+              "Franchise Operations & SOPs",
+              "Franchise Management Technology",
+              "Franchise Recruitment & Marketing",
+              "Training & Certification",
+              "Central Delivery & Customer Support",
+              "Partner Onboarding Documents",
+              "Governance & Performance Monitoring",
+              "Pilot Launch & Final Approval"
+            ]
+          },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "priority": {
+            "type": "string",
+            "enum": ["Critical", "High", "Medium", "Low"]
+          },
+          "ownerRole": { "type": "string" },
+          "assignedPerson": { "type": "string" },
+          "reviewerRole": { "type": "string" },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "Business research and modeling",
+              "Documentation and presentation",
+              "Legal and regulatory review",
+              "Product engineering",
+              "Finance and accounting",
+              "Franchise operations",
+              "Technology implementation",
+              "Management approval"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Not Started",
+              "In Progress",
+              "Document Created",
+              "Document Reviewed",
+              "Document Approved",
+              "Process Implemented",
+              "Process Verified"
+            ]
+          },
+          "dependencies": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "requiredEvidence": { "type": "string" },
+          "relatedDocuments": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "acceptanceCriteria": { "type": "string" },
+          "targetDate": { "type": "string" },
+          "completionDate": {
+            "type": ["string", "null"]
+          },
+          "approvalAuthority": { "type": "string" },
+          "launchGate": {
+            "type": "string",
+            "enum": [
+              "Gate 1: Business Model Approved",
+              "Gate 2: Legal & Financial Readiness",
+              "Gate 3: Product & Delivery Readiness",
+              "Gate 4: Franchise Recruitment Readiness",
+              "Gate 5: Pilot Launch Readiness",
+              "Gate 6: National Expansion Approval"
+            ]
+          },
+          "isBlocker": { "type": "boolean" },
+          "blockerId": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    }
+  }
+}

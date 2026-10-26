@@ -91,7 +91,15 @@ class RepoValidator:
             "clients/tmk-it-solutions/profile/client.json",
             "clients/tmk-it-solutions/products/products-catalog.json",
             "clients/tmk-it-solutions/franchise-model/revenue-sharing-config.json",
-            "clients/tmk-it-solutions/financial-models/assumptions.json"
+            "clients/tmk-it-solutions/financial-models/assumptions.json",
+            "frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md",
+            "frameworks/franchise-launch-readiness/launch-gates-and-blockers.md",
+            "schemas/launch-readiness.schema.json",
+            "tools/launch-readiness/generate_readiness_tracker.py",
+            "clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.json",
+            "clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.md",
+            "clients/tmk-it-solutions/launch-readiness/tmk-launch-gates-assessment.md",
+            "clients/tmk-it-solutions/launch-readiness/tmk_launch_readiness_tracker.xlsx"
         ]
 
         for rel_path in required_paths:
@@ -179,7 +187,8 @@ class RepoValidator:
             ("clients/tmk-it-solutions/profile/client.json", "client.schema.json"),
             ("clients/tmk-it-solutions/products/products-catalog.json", "product.schema.json"),
             ("clients/tmk-it-solutions/financial-models/assumptions.json", "financial-assumptions.schema.json"),
-            ("clients/tmk-it-solutions/franchise-model/revenue-sharing-config.json", "revenue-sharing.schema.json")
+            ("clients/tmk-it-solutions/franchise-model/revenue-sharing-config.json", "revenue-sharing.schema.json"),
+            ("clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.json", "launch-readiness.schema.json")
         ]
 
         for rel_json, schema_name in validation_targets:
@@ -234,9 +243,126 @@ class RepoValidator:
             else:
                 print(f"  [PASS] Monthly Fixed OpEx is positive: ₹{total_fixed:,.2f}")
 
+    def validate_launch_readiness(self):
+        """Validate launch readiness checklist integrity, workstream coverage, and evidence links."""
+        print("\n--- 5. Validating Launch Readiness Checklist & Workstreams ---")
+        checklist_rel = "clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.json"
+        checklist_path = os.path.join(self.repo_root, checklist_rel)
+        if not os.path.exists(checklist_path):
+            self.log_error(f"Launch readiness checklist not found: {checklist_rel}")
+            return
+
+        with open(checklist_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        items = data.get("items", [])
+        if not items:
+            self.log_error("Launch readiness checklist has no items.")
+            return
+
+        print(f"  [INFO] Checking {len(items)} launch readiness checklist items.")
+
+        # 1. Unique task IDs
+        task_ids = [item.get("taskId") for item in items if item.get("taskId")]
+        if len(task_ids) != len(set(task_ids)):
+            duplicates = [tid for tid in task_ids if task_ids.count(tid) > 1]
+            self.log_error(f"Duplicate task IDs found in checklist: {set(duplicates)}")
+        else:
+            print(f"  [PASS] All {len(task_ids)} Task IDs are unique.")
+
+        # 2. Check all 12 workstreams
+        expected_workstreams = [
+            "Business Model & Commercial Strategy",
+            "Legal, Regulatory & Intellectual Property",
+            "Six-Product Sales Readiness",
+            "Finance, Banking & Accounting",
+            "Franchise Operations & SOPs",
+            "Franchise Management Technology",
+            "Franchise Recruitment & Marketing",
+            "Training & Certification",
+            "Central Delivery & Customer Support",
+            "Partner Onboarding Documents",
+            "Governance & Performance Monitoring",
+            "Pilot Launch & Final Approval"
+        ]
+        found_workstreams = set(item.get("workstream") for item in items)
+        missing_ws = [ws for ws in expected_workstreams if ws not in found_workstreams]
+        if missing_ws:
+            self.log_error(f"Missing workstreams in checklist: {missing_ws}")
+        else:
+            print(f"  [PASS] All 12 management workstreams represented.")
+
+        # 3. Check all 6 launch gates
+        expected_gates = [
+            "Gate 1: Business Model Approved",
+            "Gate 2: Legal & Financial Readiness",
+            "Gate 3: Product & Delivery Readiness",
+            "Gate 4: Franchise Recruitment Readiness",
+            "Gate 5: Pilot Launch Readiness",
+            "Gate 6: National Expansion Approval"
+        ]
+        found_gates = set(item.get("launchGate") for item in items if item.get("launchGate"))
+        missing_gates = [g for g in expected_gates if g not in found_gates]
+        if missing_gates:
+            self.log_error(f"Missing launch gates in checklist: {missing_gates}")
+        else:
+            print(f"  [PASS] All 6 launch gates mapped to checklist items.")
+
+        # 4. Valid statuses and classifications
+        valid_statuses = {
+            "Not Started", "In Progress", "Document Created", "Document Reviewed",
+            "Document Approved", "Process Implemented", "Process Verified"
+        }
+        valid_classifications = {
+            "Business research and modeling", "Documentation and presentation",
+            "Legal and regulatory review", "Product engineering", "Finance and accounting",
+            "Franchise operations", "Technology implementation", "Management approval"
+        }
+        invalid_statuses = set()
+        invalid_classes = set()
+        broken_docs = 0
+        total_docs = 0
+
+        for item in items:
+            tid = item.get("taskId", "UNKNOWN")
+            st = item.get("status")
+            cl = item.get("classification")
+            if st not in valid_statuses:
+                invalid_statuses.add((tid, st))
+            if cl not in valid_classifications:
+                invalid_classes.add((tid, cl))
+
+            # Verify related documents exist
+            for doc in item.get("relatedDocuments", []):
+                total_docs += 1
+                clean_doc = doc.replace("/", os.sep)
+                doc_path = os.path.join(self.repo_root, clean_doc)
+                if not os.path.exists(doc_path):
+                    self.log_error(f"Task {tid} references non-existent document: '{doc}'")
+                    broken_docs += 1
+
+            # Verify blocker metadata
+            if not isinstance(item.get("isBlocker"), bool):
+                self.log_error(f"Task {tid} has non-boolean isBlocker: {item.get('isBlocker')}")
+            if item.get("blockerId") and not re.match(r"^BLK-[0-9]{3}$", str(item.get("blockerId"))):
+                self.log_error(f"Task {tid} has invalid blockerId format: {item.get('blockerId')}")
+
+        if invalid_statuses:
+            self.log_error(f"Invalid statuses detected: {invalid_statuses}")
+        else:
+            print(f"  [PASS] All item statuses conform to 7-stage maturity model.")
+
+        if invalid_classes:
+            self.log_error(f"Invalid classifications detected: {invalid_classes}")
+        else:
+            print(f"  [PASS] All item classifications conform to 8 standard categories.")
+
+        if broken_docs == 0:
+            print(f"  [PASS] All {total_docs} related document paths verified on disk.")
+
     def validate_markdown_links(self):
         """Check for broken relative file links in markdown files."""
-        print("\n--- 5. Validating Markdown Relative Links ---")
+        print("\n--- 6. Validating Markdown Relative Links ---")
         link_pattern = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
         broken_links = 0
         total_links = 0
@@ -283,6 +409,7 @@ class RepoValidator:
         self.validate_documentation_architecture()
         self.validate_json_schemas()
         self.validate_financial_consistency()
+        self.validate_launch_readiness()
         self.validate_markdown_links()
 
         print("\n================ VALIDATION SUMMARY ================")
