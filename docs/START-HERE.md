@@ -120,39 +120,39 @@ franchise-business-platform/
 ## 7. Where to Find Frameworks, Templates and Launch Readiness
 
 - **Generic Frameworks (`frameworks/`):**
-  When designing a franchise model, evaluating financial feasibility, structuring a territory policy, or managing go-live readiness, consult [frameworks/](file:///d:/company/products/franchise-business-platform/frameworks/). Every framework follows a standardized 9-section structure. Key frameworks include:
-  - [Franchise Launch Readiness Framework](file:///d:/company/products/franchise-business-platform/frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md): 12-workstream methodology, mathematical readiness scoring ($WRI$, $PLRI$), and 7-stage maturity model.
-  - [Launch Gates & Critical Blockers](file:///d:/company/products/franchise-business-platform/frameworks/franchise-launch-readiness/launch-gates-and-blockers.md): Gates 1–6 entry/exit governance and Blocker ledger taxonomy (`BLK-001` to `BLK-007`).
+  When designing a franchise model, evaluating financial feasibility, structuring a territory policy, or managing go-live readiness, consult [frameworks/](../frameworks/). Every framework follows a standardized 9-section structure. Key frameworks include:
+  - [Franchise Launch Readiness Framework](../frameworks/franchise-launch-readiness/franchise-launch-readiness-framework.md): 12-workstream methodology, mathematical readiness scoring ($WRI$, $PLRI$), and 7-stage maturity model.
+  - [Launch Gates & Critical Blockers](../frameworks/franchise-launch-readiness/launch-gates-and-blockers.md): Gates 1–6 entry/exit governance and Blocker ledger taxonomy (`BLK-001` to `BLK-007`).
 - **Reusable Templates (`templates/`):**
-  When authoring a business plan, pitch presentation, agreement draft, operations manual, or onboarding kit, start with a template in [templates/](file:///d:/company/products/franchise-business-platform/templates/). All templates use standardized `{{PLACEHOLDER}}` tags.
-  - Due diligence: [franchise-due-diligence-questionnaire.template.md](file:///d:/company/products/franchise-business-platform/templates/checklists/franchise-due-diligence-questionnaire.template.md)
-  - Curriculum: [franchisee-training-curriculum.template.md](file:///d:/company/products/franchise-business-platform/templates/training/franchisee-training-curriculum.template.md)
-  - Governance: [franchise-advisory-council-charter.template.md](file:///d:/company/products/franchise-business-platform/templates/governance/franchise-advisory-council-charter.template.md)
-  - Pilot launch: [pilot-launch-protocol.template.md](file:///d:/company/products/franchise-business-platform/templates/pilot-launch/pilot-launch-protocol.template.md)
+  When authoring a business plan, pitch presentation, agreement draft, operations manual, or onboarding kit, start with a template in [templates/](../templates/). All templates use standardized `{{PLACEHOLDER}}` tags.
+  - Due diligence: [franchise-due-diligence-questionnaire.template.md](../templates/checklists/franchise-due-diligence-questionnaire.template.md)
+  - Curriculum: [franchisee-training-curriculum.template.md](../templates/training/franchisee-training-curriculum.template.md)
+  - Governance: [franchise-advisory-council-charter.template.md](../templates/governance/franchise-advisory-council-charter.template.md)
+  - Pilot launch: [pilot-launch-protocol.template.md](../templates/pilot-launch/pilot-launch-protocol.template.md)
 
 ---
 
 ## 8. How to Select a Client Workspace
 
 Client workspaces live under `clients/<client-slug>/`.
-- For the inaugural engagement, navigate to [clients/tmk-it-solutions/](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/).
+- For the inaugural engagement, navigate to [clients/tmk-it-solutions/](../clients/tmk-it-solutions/).
 - To understand the client's commercial context, read:
-  1. [Company Overview](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/profile/company-overview.md)
-  2. [Commercial Assumptions](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/profile/commercial-assumptions.md)
-  3. [Product Catalog](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/products/products-catalog.json)
-  4. [FOFO Operating Model](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/franchise-model/fofo-operating-model.md)
-  5. [TMK Launch Readiness Checklist](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.md) & [Gates Assessment](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/launch-readiness/tmk-launch-gates-assessment.md)
-  6. [Interactive Excel Launch Tracker](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/launch-readiness/tmk_launch_readiness_tracker.xlsx)
+  1. [Company Overview](../clients/tmk-it-solutions/profile/company-overview.md)
+  2. [Commercial Assumptions](../clients/tmk-it-solutions/profile/commercial-assumptions.md)
+  3. [Product Catalog](../clients/tmk-it-solutions/products/products-catalog.json)
+  4. [FOFO Operating Model](../clients/tmk-it-solutions/franchise-model/fofo-operating-model.md)
+  5. [TMK Launch Readiness Checklist](../clients/tmk-it-solutions/launch-readiness/tmk-launch-readiness-checklist.md) & [Gates Assessment](../clients/tmk-it-solutions/launch-readiness/tmk-launch-gates-assessment.md)
+  6. [Interactive Excel Launch Tracker](../clients/tmk-it-solutions/launch-readiness/tmk_launch_readiness_tracker.xlsx)
 
 ---
 
 ## 9. How to Find Assigned Tasks
 
 Task management is centralized in the analyst command center:
-1. Open the [Centralized Task Board](file:///d:/company/products/franchise-business-platform/analyst-workspace/task-tracker/task-board.md).
+1. Open the [Centralized Task Board](../analyst-workspace/task-tracker/task-board.md).
 2. Check your role-specific backlog:
-   - Analyst 1: [analyst-1-backlog.md](file:///d:/company/products/franchise-business-platform/analyst-workspace/assignments/analyst-1-backlog.md)
-   - Analyst 2: [analyst-2-backlog.md](file:///d:/company/products/franchise-business-platform/analyst-workspace/assignments/analyst-2-backlog.md)
+   - Analyst 1: [analyst-1-backlog.md](../analyst-workspace/assignments/analyst-1-backlog.md)
+   - Analyst 2: [analyst-2-backlog.md](../analyst-workspace/assignments/analyst-2-backlog.md)
 3. Every task has an assigned ID (e.g., `A1-01` or `A2-02`), owner, expected output path, status, and objective acceptance criteria.
 
 ---
@@ -168,13 +168,13 @@ Self-Validation ──> Pull Request ──> Peer Review ──> Management Appr
 ```
 
 1. **Create Feature Branch:** `feature/<client-or-framework>-<brief-description>`.
-2. **Log Research & Assumptions:** Record citations in [research-evidence-register.md](file:///d:/company/products/franchise-business-platform/analyst-workspace/research-methodology/research-evidence-register.md) and parameters in [assumptions-register.md](file:///d:/company/products/franchise-business-platform/analyst-workspace/research-methodology/assumptions-register.md).
+2. **Log Research & Assumptions:** Record citations in [research-evidence-register.md](../analyst-workspace/research-methodology/research-evidence-register.md) and parameters in [assumptions-register.md](../analyst-workspace/research-methodology/assumptions-register.md).
 3. **Execute Self-Validation:**
    ```bash
    python -m pytest tests/ -v
    python tools/validation/validate_repo.py
    ```
-4. **Submit PR:** Use [pull_request_template.md](file:///d:/company/products/franchise-business-platform/.github/pull_request_template.md).
+4. **Submit PR:** Use [pull_request_template.md](../.github/pull_request_template.md).
 5. **Peer Review Gate:** Analyst 1 deliverables are reviewed by Analyst 2; Analyst 2 deliverables are reviewed by Analyst 1.
 
 ---
@@ -186,7 +186,7 @@ Every document and model carries an explicit status header:
 - `[WORKING DISCUSSION DRAFT]`: Formulated for structural analysis; non-binding.
 - `[PEER APPROVED]`: Validated and signed off by the cross-disciplinary peer analyst.
 - `[MODELING APPROVED]`: Mathematical integrity and formulas certified by Analyst 2.
-- `[CLIENT APPROVED]`: Formally ratified by client leadership in [approval-matrix.md](file:///d:/company/products/franchise-business-platform/clients/tmk-it-solutions/approvals/approval-matrix.md).
+- `[CLIENT APPROVED]`: Formally ratified by client leadership in [approval-matrix.md](../clients/tmk-it-solutions/approvals/approval-matrix.md).
 
 Never modify an approved document without explicit authorization.
 
@@ -196,7 +196,7 @@ Never modify an approved document without explicit authorization.
 
 Now that you understand the platform landscape, begin your guided learning journey:
 
-1. **Inspect the Master Sitemap:** [DOCUMENTATION-MAP.md](file:///d:/company/products/franchise-business-platform/docs/DOCUMENTATION-MAP.md)
-2. **Read the Terminology Glossary:** [GLOSSARY.md](file:///d:/company/products/franchise-business-platform/docs/GLOSSARY.md)
-3. **Start Guided Module 01:** [01-platform-orientation/README.md](file:///d:/company/products/franchise-business-platform/docs/01-platform-orientation/README.md)
-4. **Follow Your 5-Day Onboarding Schedule:** [07-first-week-onboarding/five-day-onboarding-journey.md](file:///d:/company/products/franchise-business-platform/docs/07-first-week-onboarding/five-day-onboarding-journey.md)
+1. **Inspect the Master Sitemap:** [DOCUMENTATION-MAP.md](DOCUMENTATION-MAP.md)
+2. **Read the Terminology Glossary:** [GLOSSARY.md](GLOSSARY.md)
+3. **Start Guided Module 01:** [01-platform-orientation/README.md](01-platform-orientation/README.md)
+4. **Follow Your 5-Day Onboarding Schedule:** [07-first-week-onboarding/five-day-onboarding-journey.md](07-first-week-onboarding/five-day-onboarding-journey.md)
